@@ -22,4 +22,4 @@ def get_static_map(latitude, longditude, zoom, size, maptype):
 
 if __name__ == "__main__":
     place = find_place("Gas", "textquery", 33.1502061, -96.8978388)
-    Map = get_static_map(33.1502061, -96.8978388, 19, "600x300", "")
+    Map = get_static_map(33.1502061, -96.8978388, 19, "600x300", "roadmap")
