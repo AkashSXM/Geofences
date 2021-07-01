@@ -1,4 +1,5 @@
 import requests
+import json
 # import numpy as np
 # import matplotlib.pyplot as plt
 
@@ -15,9 +16,10 @@ def place_by_id(placeId):
     return res
 
 def get_static_map(latitude, longditude, zoom, size, maptype):
-    req = requests.get("https://maps.googleapis.com/maps/api/staticmap?center=%f,%f&zoom=%f&size=%s&maptype=%s&key=%s" % (GOOGLE_KEY))
+    req = requests.get("https://maps.googleapis.com/maps/api/staticmap?center=%f,%f&zoom=%f&size=%s&maptype=%s&key=%s" % (latitude, longditude, zoom, size, maptype, GOOGLE_KEY))
     res = req.json()
     return res
 
 if __name__ == "__main__":
-    res = find_place("Gas", "textquery", 33.1502061, -96.8978388)
+    place = find_place("Gas", "textquery", 33.1502061, -96.8978388)
+    Map = get_static_map(33.1502061, -96.8978388, 19, "600x300", "")
