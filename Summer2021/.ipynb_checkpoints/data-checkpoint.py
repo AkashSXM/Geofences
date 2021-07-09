@@ -18,7 +18,7 @@ def place_by_id(placeId):
     return res
 
 def get_static_map(latitude, longditude, zoom, size, maptype):
-    URL = "https://maps.googleapis.com/maps/api/staticmap?center=%f,%f&zoom=%i&size=%s&maptype=%s&format=jpg&markers=color:blue|label:G|%f,%f&key=%s" % (latitude, longditude, zoom, size, maptype, latitude, longditude, GOOGLE_KEY)
+    URL = "https://maps.googleapis.com/maps/api/staticmap?center=%f,%f&zoom=%i&size=%s&maptype=%s&format=jpg&style=feature:all|element:labels|visibility:off&key=%s" % (latitude, longditude, zoom, size, maptype, GOOGLE_KEY)
     print(URL)
     req = requests.get(URL)
     # resp = req.raw
@@ -53,7 +53,7 @@ if __name__ == "__main__":
 
 
     # # #loop through coords and get images
-    mode = "satellite"
+    mode = "roadmap"
     zoom = 19
     mapsize = "600x600"
     for coord in coords: 
