@@ -1,4 +1,3 @@
-  
 import requests
 import json
 import numpy as np
@@ -44,7 +43,7 @@ if __name__ == "__main__":
     # #place = find_place("Gas", "textquery", 33.1502061, -96.8978388)
     # # read and parse coordinates
     # place["candidates"][0]["geometry"]["location"]['lng']
-    coords = np.genfromtxt('data/coords/3000_coords.csv',delimiter = ",")
+    coords = np.genfromtxt('data/coords/100_coords.csv',delimiter = ",")
     # print(coords[1:, 2:].shape)
     coords = coords[1:, 2:]
 
@@ -58,7 +57,7 @@ if __name__ == "__main__":
     mapsize = "600x600"
     for coord in coords: 
         Map = get_map_from_approx("Gas", "textquery", coord[0], coord[1], zoom, mapsize, mode)
-        with open('data/images/%s_3000_coords/%f_%f_%i_%s.png' % (mode,coord[0], coord[1], zoom, mapsize), 'wb') as file:
+        with open('data/images/%s_marked/%f_%f_%i_%s_approx.png' % (mode,coord[0], coord[1], zoom, mapsize), 'wb') as file:
             file.write(Map)
    
     # # Loop thorugh each coord and get image
